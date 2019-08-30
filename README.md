@@ -1,7 +1,7 @@
 メジャーなスクレイピングライブラリの   
 ･cheerio    
 ･puppeteer    
-を頭使わず同じような感じで使おうというものです。
+を頭使わず同じような感じで使おうというものです。  
 それぞれ短所長所があるので、場合によって書き方を買えなくていいように、メソッド名を統一しています。
 
 ----
@@ -208,6 +208,7 @@ const shopSelector = 'div.item > div.title > p.name >a';
 
 |関数  |内容  |  
 |---|---|  
+|[crowler.makePage](#makePage)|Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する|  
 |[crowler.setTestCount](#setTestCount)|renderingScraping・syncScraping・asyncScrapingの実行回数を設定する。|  
 |[crowler.getTestCount](#getTestCount)|renderingScraping・syncScraping・asyncScrapingの実行回数を取得する。|  
 |[crowler.chackTestCount](#chackTestCount)|テスト動作時にループ回数を判定する|  
