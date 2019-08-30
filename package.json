@@ -1,0 +1,16 @@
+{
+    "name": "scraping_crowler",
+    "version": "2.0.0",
+    "private": true,
+    "dependencies": {
+        "cheerio": "latest",
+        "cheerio-httpcli": "latest",
+        "csv": "^5.1.1",
+        "csv-parse": "^4.4.3",
+        "puppeteer": "^1.17.0",
+        "readline-sync": "^1.4.9"
+    },
+    "scripts": {
+        "echo": "echo npm_end"
+    }
+}
