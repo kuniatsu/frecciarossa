@@ -207,7 +207,7 @@ const shopSelector = 'div.item > div.title > p.name >a';
 # **関数一覧**
 
 |関数  |内容  |  
-|---|---|---|  
+|---|---|  
 |[crowler.setTestCount](#setTestCount)|renderingScraping・syncScraping・asyncScrapingの実行回数を設定する。|  
 |[crowler.getTestCount](#getTestCount)|renderingScraping・syncScraping・asyncScrapingの実行回数を取得する。|  
 |[crowler.chackTestCount](#chackTestCount)|テスト動作時にループ回数を判定する|  
