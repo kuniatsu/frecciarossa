@@ -208,7 +208,6 @@ const shopSelector = 'div.item > div.title > p.name >a';
 
 |関数  |内容  |  
 |---|---|  
-|[crowler.makePage](#makePage)|Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する|  
 |[crowler.setTestCount](#setTestCount)|renderingScraping・syncScraping・asyncScrapingの実行回数を設定する。|  
 |[crowler.getTestCount](#getTestCount)|renderingScraping・syncScraping・asyncScrapingの実行回数を取得する。|  
 |[crowler.chackTestCount](#chackTestCount)|テスト動作時にループ回数を判定する|  
@@ -231,7 +230,7 @@ const shopSelector = 'div.item > div.title > p.name >a';
 |[crowler.getEncodeURI](#getEncodeURI)|日本語URLをUTF-8URLに変換する|
 |[crowler.analysisDom](#analysisDom)|htmlを文字列で受け取りselectorで指定した情報を返す|
 |[page.goto](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagegotourl-options)  |pageを指定のURLへ移動  |
-|[page.click](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageclickselector-options){:target="_blank"}  |selectorでpageの指定した要素をclick  |
+|[page.click](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageclickselector-options){:target="_blank"}  |selectorでpageの指定した要素をclick  |
 |[page.waitFor](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagewaitforselectororfunctionortimeout-options-args){:target="_blank"}  |指定した秒数待つ  |
 |[page.$eval](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageevalselector-pagefunction-args-1){:target="_blank"}  |selectorでpage内の指定した要素を取得  |
 |[page.$$eval](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageevalselector-pagefunction-args){:target="_blank"}  |selectorでpage内の指定した要素を全て取得  |
