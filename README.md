@@ -143,19 +143,19 @@ CMD ["echo","now runing..."]  ・・・CMDはrun時に実行
 puppeteer使用
 ```Javascript
 "use strict";
-/*crowler.js内の関数を使用するのに必要*/
+/*crowler.js内の関数を使用するのに必要*/
 const crowler = require('./crowler'); 
 /*Tagを指定するためのセレクタ*/ 
 const shopSelector = 'div.item > div.title > p.name >a';    
 
 (async() => {
-    /*短縮して動かす際に使用、繰り返す回数を制限*/
+    /*短縮して動かす際に使用、繰り返す回数を制限*/
     // crowler.setTestCount(5);//test                        
     
     /*puppeteerのブラウザとpageを作成、pageはブラウザのタブのイメージ*/
     let page = await crowler.makePage();
     
-    /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
+    /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
     let shopUrl = await crowler.renderingGetHref(page,'https://www.nta.co.jp/shop/shoplist/shp/',shopSelector);
 
     /*指定のurlを開きセレクターで指定されている要素のinnerTextを取得する*/
@@ -249,7 +249,7 @@ const shopSelector = 'div.item > div.title > p.name >a';
 # <a name="makePage">crowler.makePage</a>
 > makePage(url=null) 
 
--引数:url・・・pageオブジェクトで開くURL   
+-引数:url・・・pageオブジェクトで開くURL   
 -戻り値:Promise(page) ・・・puppeteerのpageオブジェクトを返す
 
 pugeオブジェクトを作成する際に使用する。
@@ -258,7 +258,7 @@ pugeオブジェクトを作成する際に使用する。
 > pageClick(page,clickSelector,waitTime)
 
 -引数:page・・・使用するpageオブジェクト  
--引数:clickSelector・・・クリック対象のセレクター、セレクターは必ず一意の要素を指定すること   
+-引数:clickSelector・・・クリック対象のセレクター、セレクターは必ず一意の要素を指定すること   
 -引数:waitTime・・・クリック後の待ち時間をミリ秒で指定   
 -戻り値:Promise(page)
 
@@ -279,9 +279,9 @@ puppeteerを使用する際は最後にbrowserオブジェクトをcloseする�
 > renderingGetHref(page,url,selector)  
 
 -引数:page・・・使用するpageオブジェクト   
--引数:url・・・pageオブジェクトで開くURL   
+-引数:url・・・pageオブジェクトで開くURL   
 -引数:selector・・・取得対象のaタグを指定するセレクター  
--戻り値:Promise(String[])・・・urlで指定されたページ内からselectorの対象になるaタグのhrefを取得し配列にする
+-戻り値:Promise(String[])・・・urlで指定されたページ内からselectorの対象になるaタグのhrefを取得し配列にする
 
 リンクを取得するための関数
 
@@ -298,7 +298,7 @@ puppeteerを使用する際は最後にbrowserオブジェクトをcloseする�
 > renderingGetInnerText(page,url,selectorObj)
 
 -引数:page・・・使用するpageオブジェクト   
--引数:url・・・pageオブジェクトで開くURL    
+-引数:url・・・pageオブジェクトで開くURL    
 -引数:selectorObj・・・keyに戻り値のkeyを指定し、valueに対象ページの一意の要素セレクターを指定    
 -戻り値:Promise([{key:value}])・・・引数urlのページからkeyにselectObjのkey、valueにselectObjのvalueにで渡されたセレクターが指す要素のinnerTextを返す
 
