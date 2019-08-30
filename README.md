@@ -170,7 +170,7 @@ const shopSelector = 'div.item > div.title > p.name >a';
 
     /*puppeteerのブラウザを終了する*/
     crowler.browserClose();
-    /*取得したデータをnta.jsonというファイルで保存*/
+    /*取得したデータをnta.jsonというファイルで保存*/
     crowler.writeFile('nta.json', ntaData);
 })();
 ```
@@ -178,16 +178,16 @@ const shopSelector = 'div.item > div.title > p.name >a';
 cheerio-httpcli使用
 ```Javascript
 "use strict";
-/*crowler.js内の関数を使用するのに必要*/
+/*crowler.js内の関数を使用するのに必要*/
 const crowler = require('./crowler'); 
 /*Tagを指定するためのセレクタ*/ 
 const shopSelector = 'div.item > div.title > p.name >a';   
 
 (async() => {
-    /*短縮して動かす際に使用、繰り返す回数を制限*/
+    /* 短縮して動かす際に使用、繰り返す回数を制限 */
     // crowler.setTestCount(5);//test   
 
-    /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
+    /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
     let shopUrl = await crowler.getHref("https://www.nta.co.jp/shop/shoplist/shp/",shopSelector);
 
     /*指定のurlを開きセレクターで指定されている要素のinnerTextを取得する*/
