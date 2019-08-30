@@ -183,7 +183,7 @@ const crowler = require('./crowler');
 /*Tagを指定するためのセレクタ*/ 
 const shopSelector = 'div.item > div.title > p.name >a';   
 
-(async() => {
+(async()=>{ 
     //短縮して動かす際に使用、繰り返す回数を制限
     // crowler.setTestCount(5);
 
