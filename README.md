@@ -183,9 +183,9 @@ const crowler = require('./crowler');
 /*Tagを指定するためのセレクタ*/ 
 const shopSelector = 'div.item > div.title > p.name >a';   
 
-(async() => {
-    /* 短縮して動かす際に使用、繰り返す回数を制限 */
-    // crowler.setTestCount(5);//test   
+(async() => {
+    //短縮して動かす際に使用、繰り返す回数を制限
+    // crowler.setTestCount(5);
 
     /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
     let shopUrl = await crowler.getHref("https://www.nta.co.jp/shop/shoplist/shp/",shopSelector);
