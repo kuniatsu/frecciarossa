@@ -11,6 +11,13 @@
         "readline-sync": "^1.4.9"
     },
     "scripts": {
-        "echo": "echo npm_end"
+        "echo": "echo npm_end",
+        "dl":"npm run download && npm run tar && npm run rename && npm run remove",
+        "download":"curl -OL https://github.com/kuniatsu/frecciarossa/archive/master.zip ",
+        "tar":"tar -xvf master.zip",
+        "rename": "mv frecciarossa-master frecciarossa",
+        "rn": "mv frecciarossa-master frecciarossa",
+        "remove": "rm -rf master.zip"
+        
     }
 }
