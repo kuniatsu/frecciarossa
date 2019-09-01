@@ -11,7 +11,7 @@ frecciarossaを使うにはDL先の環境に動作環境に、
 ・Dockerがインストールされたターミナル    
 のいずれかが必要です。   
 
-# **frecciarossaのDLする**
+# **frecciarossaをDLする**
 
 GitでDLする方法
 > $ git clone https://github.com/kuniatsu/frecciarossa.git
