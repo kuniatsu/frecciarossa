@@ -170,8 +170,8 @@ const shopSelector = 'div.item > div.title > p.name >a';
 
     /*puppeteerのブラウザを終了する*/
     crowler.browserClose();
-    /*取得したデータをnta.jsonというファイルで保存*/
-    crowler.writeFile('nta.json', ntaData);
+    /*取得したデータをdata.jsonというファイルで保存*/
+    crowler.writeFile('data.json', ntaData);
 })();
 ```
 
@@ -199,8 +199,8 @@ const shopSelector = 'div.item > div.title > p.name >a';
         holiday :'div.base_dlist > dl:nth-of-type(6) > dd'
     });
 
-    /*取得したデータをnta.jsonというファイルで保存*/
-    crowler.writeFile('nta.json',ntaData);
+    /*取得したデータをdata.jsonというファイルで保存*/
+    crowler.writeFile('data.json',ntaData);
 })();
 ```
 
