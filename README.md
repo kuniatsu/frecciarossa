@@ -13,10 +13,6 @@ frecciarossaを使うにはDL先の環境に動作環境に、
 
 # **frecciarossaのDLする**
 
-
-npmでDL&installする方法。
-> $ npm install kuniatsu/frecciarossa
-
 GitでDLする方法
 > $ git clone https://github.com/kuniatsu/frecciarossa.git
 
