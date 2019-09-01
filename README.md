@@ -13,17 +13,20 @@ frecciarossaを使うにはDL先の環境に動作環境に、
 
 # **frecciarossaのDLする**
 
+
 npmでDLする方法。
 > $ npm install (gitURL)
 
 GitでDLする方法
-> $ git clone (http://)
+> $ git clone https://github.com/kuniatsu/frecciarossa.git
 
 cURLでDLする方法
-> $ curl  
+> $ curl -OL https://github.com/kuniatsu/frecciarossa/archive/master.zip  
 
 ブラウザでDLする方法(以下をブラウザで開く)
-> http://
+> https://github.com/kuniatsu/frecciarossa/archive/master.zip
+
+
 
 
 
