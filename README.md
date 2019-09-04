@@ -6,21 +6,35 @@
 
 ----
 
+```
 frecciarossaを使うにはDL先の環境に動作環境に、      
 ・node.jsがインストールされたターミナル   
 ・Dockerがインストールされたターミナル    
 のいずれかが必要です。   
+```
+
+# 目次
+･[frecciarossaをDLする](#frecciarossaをDLする)  
+･[Node.jsがインストールされた環境で動作させる方法](#Node.jsがインストールされた環境で動作させる方法)  
+･[Dockerがインストールされた環境で動作させる方法](#Dockerがインストールされた環境で動作させる方法)  
+･[scrapingサンプル](#scrapingサンプル)   
+･[関数一覧](#関数一覧)  
+
+
+
 
 # **frecciarossaをDLする**
+
+zipファイルでダウンロード  
+<a href="https://github.com/kuniatsu/frecciarossa/archive/master.zip">
+  <button>zipでダウンロード</button>
+</a>  
 
 GitでDLする方法
 > $ git clone https://github.com/kuniatsu/frecciarossa.git
 
 cURLでDLする方法
 > $ curl -OL https://github.com/kuniatsu/frecciarossa/archive/master.zip  
-
-ブラウザでDLする方法(以下をブラウザで開く)
-> https://github.com/kuniatsu/frecciarossa/archive/master.zip
 
 
 
@@ -101,7 +115,7 @@ cURLでDLする方法
 
 <br><br><br><br><br><br>
 
-# **Dockerfileの詳細**
+## **Dockerfileの詳細**
 
 ```md:Dockerfile  
 FROM amazonlinux              ・・・FROMで基のimageを選択(使用するOSなどを指定)  

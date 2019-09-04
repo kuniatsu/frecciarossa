@@ -4,7 +4,7 @@ const URL = require('url');
 const fs = require("fs");
 const puppeteer = require('puppeteer');
 // const chromeArgs = ['--no-sandbox','--disable-setuid-sandbox'];
-// puppeteer.launch({headless: false});//確認できる状態でscrapingを行う
+puppeteer.launch({headless: false});//確認できる状態でscrapingを行う
 
 
 var testnum = Number.MAX_SAFE_INTEGER;
@@ -163,7 +163,7 @@ exports.getValue = async (url,selectorObj)=>{
     return array;
 }
 
-/* 新規追加 内部でも使うからダメかも*/  
+//constじゃないとダメでは？
 exports.getSelectorValue = async (cheerioDom,targetObj)=>{
     let value;
     let dom = cheerioDom.$(targetObj.selector);
@@ -180,6 +180,28 @@ exports.getSelectorValue = async (cheerioDom,targetObj)=>{
     return value;
 };
 
+
+//urlで指定された画面の値を収集する
+exports.renderingGetValue = async (page,url,selectorObj)=>{
+    await page.goto(url, {waitUntil: "networkidle2"}).catch(()=>null);
+    let array = [];
+    let obj = {};
+    for(let key in selectorObj){
+        obj[key] = await renderingGetSelectorValue(page,selectorObj[key]).catch(()=>null);
+    }
+    array.push(obj);
+    return array;
+}
+
+/* URLが取得したいので作成 */
+const renderingGetSelectorValue = async (page,targetObj)=>{
+    if(targetObj.selector){
+            return await page.evaluate((targetObj)=>{
+                return document.querySelector(targetObj.selector)[targetObj.attribute];
+            },targetObj);
+    }
+    return null;
+}
 
 
 const renderingGetSelectorText = async (page,selector)=>{
@@ -205,6 +227,7 @@ exports.renderingScraping = async (page,urllist,callback,selector)=>{
     }
     return valueList;
 }
+
 exports.syncScraping = async (urllist,callback,selector)=>{
     let valueList = [];
     for(let url of urllist){

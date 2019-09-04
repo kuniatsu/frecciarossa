@@ -1,0 +1,151 @@
+[{
+    "name": "Element.attributes",
+    "description": "Element.attributes プロパティは、そのノードに登録された全ての属性ノードのコレクションを返却します。返却される値は NamedNodeMap であり、 Array ではありません。つまり、 Array のメソッドは持っておらず、 Attr ノードのインデックスはブラウザーによって変わる可能性があります。より正確に言うと、 attributes はその属性に関するあらゆる情報を表す文字列のキーと値の組です。",
+    "syntax": "var attr = element.attributes;\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/attributes"
+}, {
+    "name": "Element.classList",
+    "description": "Element.classList は読み取り専用のプロパティで、要素の class 属性における生きた DOMTokenList コレクションを返します。",
+    "syntax": "const elementClasses = elementNodeReference.classList;\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/classList"
+}, {
+    "name": "element.className",
+    "description": "className は要素の class 属性の値の取得 / 設定に用います。",
+    "syntax": "cName = elementNodeReference.className;\nelementNodeReference.className = cName;",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/className"
+}, {
+    "name": "element.clientHeight",
+    "description": "概要",
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientHeight"
+}, {
+    "name": "element.clientLeft",
+    "description": "",
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientLeft"
+}, {
+    "name": "element.clientTop",
+    "description": "要素の上ボーダーの幅のピクセル数です。上マージン、及び、上パディングは含みません。clientTop は読込専用です。",
+    "syntax": "top = element.clientTop;\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientTop"
+}, {
+    "name": "Element.clientWidth",
+    "description": "Element.clientWidth プロパティは、 CSS やインラインレイアウトボックスのない要素にはゼロになります。そうでなければ、ピクセル単位で要素の内側の寸法を表します。要素のパディングは含みますが、境界線、マージン、 (もしあれば) 垂直スクロールバーは含みません。",
+    "syntax": "var intElemClientWidth = element.clientWidth;",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientWidth"
+}, {
+    "name": "ページが見つかりません",
+    "description": null,
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/computedName"
+}, {
+    "name": "ページが見つかりません",
+    "description": null,
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/computedRole"
+}, {
+    "name": "element.id",
+    "description": "要素の 識別子 (identifier) を取得 / 設定します。",
+    "syntax": "idStr =element.id; // 取得\nelement.id = idStr; // 設定\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/id"
+}, {
+    "name": "element.innerHTML",
+    "description": "Element オブジェクトの innerHTML プロパティは、要素内の HTML または XML のマークアップを取得したり設定したりします。",
+    "syntax": "const content = element.innerHTML;\n\nelement.innerHTML = htmlString;\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/innerHTML"
+}, {
+    "name": "Element.localName",
+    "description": "Element.localName 読み取り専用プロパティは、要素の修飾名のローカル部分を返します。",
+    "syntax": "name = element.localName\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/localName"
+}, {
+    "name": "Element.namespaceURI",
+    "description": "The Element.namespaceURI read-only property returns the namespace URI of the element, or null if the element is not in a namespace.",
+    "syntax": "namespace = element.namespaceURI",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/namespaceURI"
+}, {
+    "name": "NonDocumentTypeChildNode.nextElementSibling",
+    "description": "The NonDocumentTypeChildNode.nextElementSibling read-only property returns the element immediately following the specified one in its parent's children list, or null if the specified element is the last one in the list.",
+    "syntax": "var nextNode = elementNodeReference.nextElementSibling; ",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/NonDocumentTypeChildNode/nextElementSibling"
+}, {
+    "name": "Element.outerHTML",
+    "description": "outerHTML は Element DOM インターフェイスの属性で、要素とその子孫を含む部分の HTML がシリアライズされたものを取得します。設定することで指定された文字列を解釈したノードの要素に置き換えることができます。",
+    "syntax": "var content = element.outerHTML;\n\nelement.outerHTML = htmlString;\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/outerHTML"
+}, {
+    "name": "Element.prefix",
+    "description": "Element.prefix 読み取り専用プロパティは、指定された要素の名前空間プレフィックスを、プレフィックスが指定されていない場合は null を返します。",
+    "syntax": "string = element.prefix\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/prefix"
+}, {
+    "name": "NonDocumentTypeChildNode.previousElementSibling",
+    "description": "The NonDocumentTypeChildNode.previousElementSibling read-only property returns the Element immediately prior to the specified one in its parent's children list, or null if the specified element is the first one in the list.",
+    "syntax": "prevNode = elementNodeReference.previousElementSibling; \n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling"
+}, {
+    "name": "Element.scrollHeight",
+    "description": "The Element.scrollHeight read-only property is a measurement of the height of an element's content, including content not visible on the screen due to overflow.",
+    "syntax": "var intElemScrollHeight = element.scrollHeight;",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollHeight"
+}, {
+    "name": "Element.scrollLeft",
+    "description": "The Element.scrollLeft property gets or sets the number of pixels that an element's content is scrolled from its left edge.",
+    "syntax": "// Get the number of pixels scrolled\nvar sLeft = element.scrollLeft;\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollLeft"
+}, {
+    "name": "Element.scrollLeftMax",
+    "description": "The Element.scrollLeftMax read-only property returns a Number representing the maximum left scroll offset possible for the element.",
+    "syntax": "var pxl = element.scrollLeftMax;",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollLeftMax"
+}, {
+    "name": "element.scrollTop",
+    "description": "",
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollTop"
+}, {
+    "name": "Element.scrollTopMax",
+    "description": "The Element.scrollTopMax read-only property returns a Number representing the maximum top scroll offset possible for the element.",
+    "syntax": "var pxl = elt.scrollTopMax;",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollTopMax"
+}, {
+    "name": "Element.scrollWidth",
+    "description": "Element.scrollWidth は読み取り専用のプロパティで、あふれたために画面に表示されない部分を含めた、要素の中身の幅の寸法です。",
+    "syntax": "var xScrollWidth = element.scrollWidth;",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollWidth"
+}, {
+    "name": "Element.shadowRoot",
+    "description": "読み取り専用のプロパティであるElement.shadowRootは、そのエレメントによってホストされたshadow rootへの読み取りアクセスを提供します。既に存在している要素にshadow rootを追加する場合は Element.attachShadow を使用してください。",
+    "syntax": "var shadowroot = element.shadowRoot; \n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/shadowRoot"
+}, {
+    "name": "Element.openOrClosedShadowRoot",
+    "description": "The Element.openOrCloseShadowRoot read-only property represents the shadow root hosted by the element, regardless if its mode is open or closed. Use Element.attachShadow() to add a shadow root to an existing element.",
+    "syntax": "var shadowroot = element.shadowRoot; \n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/openOrClosedShadowRoot"
+}, {
+    "name": "Element.slot",
+    "description": "Element インターフェースの slot プロパティは shadow DOM slot の名前を返します。",
+    "syntax": "var aString = element.slot\nelement.slot = aString\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/slot"
+}, {
+    "name": "Element.tabStop",
+    "description": "The tabStop property of the Element interface returns a Boolean indicating if the element can receive input focus via the tab key. If the specified element is a shadow host tab navigation is delegated to its children.",
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/tabStop"
+}, {
+    "name": "element.tagName",
+    "description": "要素の名前を返します。",
+    "syntax": "elementName = element.tagName\n",
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/tagName"
+}, {
+    "name": "ページが見つかりません",
+    "description": null,
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/undoManager"
+}, {
+    "name": "ページが見つかりません",
+    "description": null,
+    "syntax": null,
+    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/undoScope"
+}]
