@@ -3,9 +3,6 @@ const cheerio = require('cheerio');
 const URL = require('url');
 const fs = require("fs");
 const puppeteer = require('puppeteer');
-// const chromeArgs = ['--no-sandbox','--disable-setuid-sandbox'];
-puppeteer.launch({headless: false});//確認できる状態でscrapingを行う
-
 
 var testnum = Number.MAX_SAFE_INTEGER;
 var browser = null;
@@ -31,11 +28,11 @@ exports.getClient = ()=>{
 }
 
 //Puppeteerのpage作成
-exports.makePage = async(url=null)=>{
+exports.makePage = async(url=null,headless=true)=>{
     if(browser === null){
         console.log('make browser');
         //browser = await puppeteer.launch({args: chromeArgs});
-        browser = await puppeteer.launch({headless: false});
+        browser = await puppeteer.launch({headless: headless});
 
     }
     let page = await browser.newPage();
@@ -47,12 +44,11 @@ exports.makePage = async(url=null)=>{
 }
 
 //Puppeteerのpage作成(ベーシック認証あり)
-exports.makePageBasic = async(url=null,user,pass)=>{
+exports.makePageBasic = async(url=null,user,pass,headless=true)=>{
     if(browser === null){
         console.log('make browser');
         //browser = await puppeteer.launch({args: chromeArgs});
-        browser = await puppeteer.launch({headless: true});
-
+        browser = await puppeteer.launch({headless: headless});
     }
     let page = await browser.newPage();
     if(url!=null){
@@ -163,8 +159,7 @@ exports.getValue = async (url,selectorObj)=>{
     return array;
 }
 
-//constじゃないとダメでは？
-exports.getSelectorValue = async (cheerioDom,targetObj)=>{
+const getSelectorValue = async (cheerioDom,targetObj)=>{
     let value;
     let dom = cheerioDom.$(targetObj.selector);
     if(targetObj.attribute == "text" || targetObj.attribute == "innerText"){

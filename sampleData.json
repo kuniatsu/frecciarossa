@@ -1,151 +1,151 @@
 [{
     "name": "Element.attributes",
-    "description": "Element.attributes プロパティは、そのノードに登録された全ての属性ノードのコレクションを返却します。返却される値は NamedNodeMap であり、 Array ではありません。つまり、 Array のメソッドは持っておらず、 Attr ノードのインデックスはブラウザーによって変わる可能性があります。より正確に言うと、 attributes はその属性に関するあらゆる情報を表す文字列のキーと値の組です。",
+    "description": "Element.attributes プロパティは、そのノードに登録された全ての属性ノードのコレクションを返却します。返却される値は NamedNodeMap であり、 Array ではありません。つまり、 Array のメソッドは持っておらず、 Attr ノードのインデックスはブラウザーによって変わる可能性があります。より正確に言うと、 attributes はその属性に関するあらゆる情報を表す文字列のキーと値の組です。ある要素の全ての属性を走査したい時には、インデックスを使うと便利です。\n 次の例では、 \"paragraph\" を id に持つ要素の全ての属性ノードを走査し、その属性の値を表示します。",
     "syntax": "var attr = element.attributes;\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/attributes"
+    "url": "__nothing"
 }, {
     "name": "Element.classList",
-    "description": "Element.classList は読み取り専用のプロパティで、要素の class 属性における生きた DOMTokenList コレクションを返します。",
+    "description": "Element.classList は読み取り専用のプロパティで、要素の class 属性における生きた DOMTokenList コレクションを返します。classList を使用することは、 element.className から取得した空白区切りの文字列として要素のクラスのリストにアクセスすることの便利な代替手段になります。elementClasses は DOMTokenList であり、 elementNodeReference の class 属性を表します。 class がない場合や空の場合は、 elementClasses.length は 0 を返します。 element.classList 自体は読取専用ですが、 add() や remove() を用いてオブジェクトを変更することはできます。以前の onpropertychange イベントは、変更されたときにこのイベントを発生させる Element.prototype.className プロパティが存在することを考慮して、実際のクラスリストモックアップを作成するために使用することができます。以下のポリフィルは、 classList とその関連する DOMTokenList の両方を代替します。以下のポリフィルは、 IE10-IE11 の Element.prototype.classList と IE6-9 の「標準的な」 (ほとんどの一般的なアプリケーションの) 動作にアクセスする、すべての DOMTokenList メソッドの完全な標準準拠を保証します。なお、上記のポリフィルは機能が限定されています。現在、 IE 6-7 では、文書要素の外にある要素 (たとえば、 document.createElement によって作成された後、親ノードに appendChild される前の要素) を代替することができません。しかし、 IE9 では正常に動作するはずです。代替バージョンの classList と W3 の仕様書との主な違いは、 IE 6-8 においては不変オブジェクト (プロパティを直接変更できないオブジェクト) を生成する方法がないという点です。しかし IE9 では、プロトタイプを拡張し、可視オブえジェクトを凍結し、ネイティブのプロパティメソッドを上書きすることで可能です。しかし、このような操作は IE6-IE8 では機能せず、 IE9 ではウェブページ全体のパフォーマンスを大幅に低下させるため、これらの修正はこのポリフィルでは完全に実行できません。 IE6-7 の軽い注意事項ですが、このポリフィルは window オブジェクトの window[\" uCL\"] プロパティを使用して CSS の式とコミュニケーションを行い、 CSS の x-uCLp プロパティをすべての要素に付与し、 element[\" uCL\"] プロパティによってガーベジコレクションを行うことができるようにして性能を改善しています。すべてのポリフィルを使用したブラウザー (IE6-9) では、追加の element[\" uCLp\"] プロパティによって要素に標準に準拠したプロトタイピングを保証し、それぞれの element[\"classList\"] オブジェクトに DOMTokenList[\" uCL\"] プロパティを追加することで、 DOMTokenList が自分自身の要素の範囲に収まることを保証します。このページの互換性一覧表は構造化データから生成されています。データに協力していただけるのであれば、 https://github.com/mdn/browser-compat-data をチェックアウトしてプルリクエストを送信してください。",
     "syntax": "const elementClasses = elementNodeReference.classList;\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/classList"
+    "url": "__nothing"
 }, {
     "name": "element.className",
-    "description": "className は要素の class 属性の値の取得 / 設定に用います。",
+    "description": "className は要素の class 属性の値の取得 / 設定に用います。\"class\" という語句はプログラミングに於いて様々な文脈で用いられる為、競合を防ぐために className という名称となっています。",
     "syntax": "cName = elementNodeReference.className;\nelementNodeReference.className = cName;",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/className"
+    "url": "__nothing"
 }, {
     "name": "element.clientHeight",
-    "description": "概要",
-    "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientHeight"
+    "description": "概要要素内のピクセル単位の高さ (height) を返します。padding を含み、水平スクロールバーの height または border, margin を含みません。clientHeight は CSS height + CSS padding - 水平スクロールバーの高さ(height) (表示されていれば) として計算できます。h は、element の clientHeight をピクセルで表す整数値です。clientHeight は読み取り専用です。W3C 仕様の一部ではありません。clientHeight は Internet Explorer オブジェクトモデルで導入された、非標準の HTML 用のプロパティです。offsetLeft は、要素の左上端の位置を返します。これは必ずしも要素の「本当の」左端ではありません。これは、一行が次に字送りされる浮動テキスト内の span 要素にとって重要です。span はページの中央から始まり、次の行の始めに字送りされるとします。offsetLeft は、二行目のテキストが始まる左端ではなく、span が始まる左端を参照します。そのため、left, top, width, height がそれぞれ offsetLeft, offsetTop, offsetWidth および offsetHeight のボックスは、字送りされた span を囲むボックスにはなりません。(ちなみに、私はそのような span の左端を見つける計算方法を知りません。はぁ。)",
+    "syntax": "__nothing",
+    "url": "__nothing"
 }, {
     "name": "element.clientLeft",
-    "description": "",
-    "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientLeft"
+    "description": " 要素の左ボーダーの幅のピクセル数です。 要素のテキストの方向が右から左である場合と、 オーバーフローにより左の縦スクロールバーがレンダリングされた場合の縦スクロールバーの幅を含みます。clientLeft は左マージン、または、左パディングを含んでいません。clientLeft は読み込み専用です。Gecko ベースアプリケーションは、 Gecko 1.9 (Firefox 3、バグ 111207 で実装) から clientLeft をサポートします。このプロパティは、Firefox 2 以前ではサポートされません。 \n \n  layout.scrollbar.side\n プロパティ が、1、あるいは、3 に設定されたときと、テキストの方向が右から左へ設定されたときは、 縦スクロールバーは、左側に表示されます。 そして、これは、clientLeft が自動計算される方法に影響します。W3C の仕様の一部ではありません。clientLeft は MS IE DHTML オブジェクトモデルで最初に導入されました。  ",
+    "syntax": "__nothing",
+    "url": "__nothing"
 }, {
     "name": "element.clientTop",
-    "description": "要素の上ボーダーの幅のピクセル数です。上マージン、及び、上パディングは含みません。clientTop は読込専用です。",
+    "description": "要素の上ボーダーの幅のピクセル数です。上マージン、及び、上パディングは含みません。clientTop は読込専用です。Gecko ベースアプリケーションは、 Gecko 1.9 (Firefox 3、バグ 111207 で実装) から clientTop をサポートします。このプロパティは、Firefox 2 以前ではサポートされません。W3C の仕様の一部ではありません。clientTop は MS IE DHTML オブジェクトモデルで最初に導入されました。",
     "syntax": "top = element.clientTop;\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientTop"
+    "url": "__nothing"
 }, {
     "name": "Element.clientWidth",
-    "description": "Element.clientWidth プロパティは、 CSS やインラインレイアウトボックスのない要素にはゼロになります。そうでなければ、ピクセル単位で要素の内側の寸法を表します。要素のパディングは含みますが、境界線、マージン、 (もしあれば) 垂直スクロールバーは含みません。",
+    "description": "Element.clientWidth プロパティは、 CSS やインラインレイアウトボックスのない要素にはゼロになります。そうでなければ、ピクセル単位で要素の内側の寸法を表します。要素のパディングは含みますが、境界線、マージン、 (もしあれば) 垂直スクロールバーは含みません。intElemClientWidth は element の clientWidth をピクセル数で表す整数値です。 clientWidth プロパティは読み取り専用です。clientWidth は MS IE DHTML オブジェクトモデルにおいて初めて導入されました。",
     "syntax": "var intElemClientWidth = element.clientWidth;",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/clientWidth"
+    "url": "__nothing"
 }, {
-    "name": "ページが見つかりません",
+    "name": null,
     "description": null,
     "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/computedName"
+    "url": null
 }, {
-    "name": "ページが見つかりません",
+    "name": null,
     "description": null,
     "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/computedRole"
+    "url": null
 }, {
     "name": "element.id",
-    "description": "要素の 識別子 (identifier) を取得 / 設定します。",
+    "description": "要素の 識別子 (identifier) を取得 / 設定します。ID は文書内でユニークでなくてはならず、document.getElementById を使って要素を取り出すために使われることがあります。仮に文法を無視して同一 id の要素が文書内に複数存在する場合、このメソッドは最初の要素を取得します。document によっては(特に HTML 、 XUL 、SVG)、要素の id は次のような要素の属性として指定することができます: <div id=\"part_3\">.但しカスタム XML 文書に於いては、id 属性の型を DOCTYPE で定められたとおりに正しく指定しなければなりません。詳細については『getElementById Pitfalls (getElementById の落とし穴)』をご覧下さい。id 属性は、スタイルシートでスタイルを適用するために要素を参照する要素でも用いられます。スタイルシート内から特定の要素を参照するには、HTML に指定した id 属性値の先頭に # を付けます。id 属性はケースセンシティブ……即ち、大文字と小文字を区別するという点に注意して下さい。つまり、 \"thisID\" と \"ThisID\" は別の id として扱われ、それぞれ別の要素を指し示す識別子となります (参照 : class 属性 / id 属性 / name 属性はケースセンシティブである) ",
     "syntax": "idStr =element.id; // 取得\nelement.id = idStr; // 設定\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/id"
+    "url": "__nothing"
 }, {
     "name": "element.innerHTML",
-    "description": "Element オブジェクトの innerHTML プロパティは、要素内の HTML または XML のマークアップを取得したり設定したりします。",
+    "description": "Element オブジェクトの innerHTML プロパティは、要素内の HTML または XML のマークアップを取得したり設定したりします。要素の内容を置き換えるというより、文書に HTML を挿入するという場合には、 insertAdjacentHTML() メソッドを使用してください。要素の子孫を HTML シリアライズしたものを含んだ DOMString です。 innerHTML に値を設定すると、要素のすべての子孫を削除して、 htmlString の文字列で与えられた HTML を解析して構築されたノードに置き換えます。innerHTML プロパティは、ページの現在の HTML ソースを、ページが最初に読み込まれてから行われたあらゆる変更を含めて、見るために利用することができます。innerHTML を読み取ると、ユーザーエージェントが要素の子孫で構成される HTML または XML の断片をシリアライズします。結果として文字列が返ります。これで、 HTML のコンテンツのノードの HTML マークアップを見ることができます。innerHTML の値を設定することで、既存の要素の内容を新しい内容に置き換えることが簡単にできます。例えば、文書の body 属性の内容を消去することで、文書の内容全体を消去することができます。この例は文書の現在の HTML マークアップを走査し、 \"<\" の文字を HTML エンティティの \"&lt;\" に置き換え、それによって本質的に HTML を生テキストに変換します。そしてこれを <pre> で囲みます。そして、 innerHTML の値をこの新しい文字列に変更します。結果として、文書の内容がページ全体のソースコードの表示に置き換わります。innerHTML に値を設定すると、正確には何が起きるのでしょうか？これを行うと、ユーザーエージェントは以下のステップを追います。ウェブページにテキストを挿入するために innerHTML を使用している例は珍しくありませんありません。これがサイト上の攻撃ベクトルになる可能性があり、潜在的なセキュリティリスクが生じます。これはクロスサイトスクリプティング攻撃のように見えますが、結果的には無害です。 HTML5 では innerHTML で挿入された <script> タグは実行するべきではないと定義しているからです。しかし、次のように <script> を使わずに JavaScript を実行する方法もあるので、制御することができない文字列を設定するために innerHTML を使用するたびに、セキュリティリスクは残ります。このため、プレーンテキストを挿入するときには innerHTML を使用せず、代わりに Node.textContent を使用することをお勧めします。これは渡されたコンテンツを HTML として解釈するのではなく、生テキストとして挿入します。この例は innerHTML を使用して、ウェブページ上のボックス内にメッセージを記録するメカニズムを作成します。log() 関数は Date オブジェクトから toLocaleTimeString() を使用して現在時刻を取得し、タイムスタンプとメッセージテキストから成る文字列を構築してログ出力を生成します。それから \"log\" クラスのボックスにメッセージを追加します。MouseEvent ベースのイベント (mousedown, click, mouseenter など) についての情報を記録する第二のメソッドを追加します。それから、これをログを収めるボックスの様々なマウスイベントのイベントハンドラーとして登録します。この例の HTML はとても単純です。\"box\" クラスが付いた <div> は、単なるレイアウト用途のコンテナーであり、内容とその周りのボックスを表します。クラスが \"log\" である <div> は、ログテキスト自身のコンテナーです。以下の CSS が例の内容をスタイル付けします。結果の内容はこのように見えます。マウスが移動してボックスを出入りしたり、中でクリックしたりすると、ログが出力されるのを見ることができます。このページの互換性一覧表は構造化データから生成されています。データに協力していただけるのであれば、 https://github.com/mdn/browser-compat-data をチェックアウトしてプルリクエストを送信してください。",
     "syntax": "const content = element.innerHTML;\n\nelement.innerHTML = htmlString;\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/innerHTML"
+    "url": "__nothing"
 }, {
     "name": "Element.localName",
-    "description": "Element.localName 読み取り専用プロパティは、要素の修飾名のローカル部分を返します。",
+    "description": "Element.localName 読み取り専用プロパティは、要素の修飾名のローカル部分を返します。要素の修飾名の、ローカル部分を示す DOMString。（text/xml や application/xhtml+xml のような、XML のコンテンツタイプで送出される必要があります。）ノードのローカル名は、ノードの修飾名の、コロンの後に続く部分です。修飾名は一般に、XML において、特定の XML 文書の名前空間の一部として使われます。例えば、ecomm:partners という修飾名において、 partners はローカル名、ecomm は接頭辞です。[1] この API は以前、Node API で利用可能でした。",
     "syntax": "name = element.localName\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/localName"
+    "url": "__nothing"
 }, {
     "name": "Element.namespaceURI",
-    "description": "The Element.namespaceURI read-only property returns the namespace URI of the element, or null if the element is not in a namespace.",
+    "description": "The Element.namespaceURI read-only property returns the namespace URI of the element, or null if the element is not in a namespace.In this snippet, an element is being examined for its localName and its namespaceURI. If the namespaceURI returns the XUL namespace and the localName returns \"browser\", then the node is understood to be a XUL <browser/>.This is not a computed value that is the result of a namespace lookup based on an examination of the namespace declarations in scope. The namespace URI of a node is frozen at the node creation time.In Firefox 3.5 and earlier, the namespace URI for HTML elements in HTML documents is null. In later versions, in compliance with HTML5, it is http://www.w3.org/1999/xhtml as in XHTML. You can create an element with the specified namespaceURI using the DOM Level 2 method document.createElementNS.The DOM does not handle or enforce namespace validation per se. It is up to the DOM application to do any validation necessary. Note too that the namespace prefix, once it is associated with a particular element, cannot be changed.",
     "syntax": "namespace = element.namespaceURI",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/namespaceURI"
+    "url": "__nothing"
 }, {
     "name": "NonDocumentTypeChildNode.nextElementSibling",
-    "description": "The NonDocumentTypeChildNode.nextElementSibling read-only property returns the element immediately following the specified one in its parent's children list, or null if the specified element is the last one in the list.",
+    "description": "The NonDocumentTypeChildNode.nextElementSibling read-only property returns the element immediately following the specified one in its parent's children list, or null if the specified element is the last one in the list.This example outputs the following into the console when it loads:This property is unsupported prior to IE9, so the following snippet can be used to add support to IE8:",
     "syntax": "var nextNode = elementNodeReference.nextElementSibling; ",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/NonDocumentTypeChildNode/nextElementSibling"
+    "url": "__nothing"
 }, {
     "name": "Element.outerHTML",
-    "description": "outerHTML は Element DOM インターフェイスの属性で、要素とその子孫を含む部分の HTML がシリアライズされたものを取得します。設定することで指定された文字列を解釈したノードの要素に置き換えることができます。",
+    "description": "outerHTML は Element DOM インターフェイスの属性で、要素とその子孫を含む部分の HTML がシリアライズされたものを取得します。設定することで指定された文字列を解釈したノードの要素に置き換えることができます。要素の内容のみの HTML 表現を取得する場合や、要素の内容を置き換える場合であれば、代わりに innerHTML プロパティを使用してください。outerHTML の値を読み取ると、 element およびその子孫の HTML シリアライズを含む DOMString が返されます。 outerHTML の値を設定すると、その要素とそのすべての子孫を、指定された htmlString を解釈して構築された新しい DOM ツリーで置き換えます。要素の outerHTML プロパティの値を得る例を示します。次の例では、 outerHTML プロパティに値を設定し、ノードを置換します。要素が親要素を持たない場合、その outerHTML プロパティに値を設定してもその要素や子孫は変更されません。多くのブラウザーでは例外も発生します。以下に例を示します。また、文書の中で要素が置換された場合も、 outerHTML プロパティが設定された変数は、引き続きオリジナルの要素への参照を保持しています。",
     "syntax": "var content = element.outerHTML;\n\nelement.outerHTML = htmlString;\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/outerHTML"
+    "url": "__nothing"
 }, {
     "name": "Element.prefix",
-    "description": "Element.prefix 読み取り専用プロパティは、指定された要素の名前空間プレフィックスを、プレフィックスが指定されていない場合は null を返します。",
+    "description": "Element.prefix 読み取り専用プロパティは、指定された要素の名前空間プレフィックスを、プレフィックスが指定されていない場合は null を返します。以下はコンソールに \"x\" を記録します。これは名前空間を認識するパーサが使われている場合、すなわち文書がXMLのMIMEタイプで送られているときのみ働き、HTML文書では働かないでしょう。[1] 以前、このAPIは Node APIで利用可能でした。",
     "syntax": "string = element.prefix\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/prefix"
+    "url": "__nothing"
 }, {
     "name": "NonDocumentTypeChildNode.previousElementSibling",
-    "description": "The NonDocumentTypeChildNode.previousElementSibling read-only property returns the Element immediately prior to the specified one in its parent's children list, or null if the specified element is the first one in the list.",
+    "description": "The NonDocumentTypeChildNode.previousElementSibling read-only property returns the Element immediately prior to the specified one in its parent's children list, or null if the specified element is the first one in the list.This example outputs the following into the page when it loads:This property is unsupported prior to IE9, so the following snippet can be used to add support to IE8:",
     "syntax": "prevNode = elementNodeReference.previousElementSibling; \n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling"
+    "url": "__nothing"
 }, {
     "name": "Element.scrollHeight",
-    "description": "The Element.scrollHeight read-only property is a measurement of the height of an element's content, including content not visible on the screen due to overflow.",
-    "syntax": "var intElemScrollHeight = element.scrollHeight;",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollHeight"
+    "description": "The Element.scrollHeight read-only property is a measurement of the height of an element's content, including content not visible on the screen due to overflow.The scrollHeight value is equal to the minimum height the element would require in order to fit all the content in the viewport without using a vertical scrollbar. The height is measured in the same way as clientHeight: it includes the element's padding, but not its border, margin or horizontal scrollbar (if present). It can also include the height of pseudo-elements such as ::before or ::after. If the element's content can fit without a need for vertical scrollbar, its scrollHeight is equal to clientHeightintElemScrollHeight is a variable storing an integer corresponding to the scrollHeight pixel value of the element. The scrollHeight property is read-only.The following equivalence returns true if an element is at the end of its scroll, false if it isn't.When the container does not scroll, but has overflowing children, these checks determine if the container can scroll:Associated with the onscroll event, this equivalence can be useful to determine whether a user has read a text or not (see also the element.scrollTop and element.clientHeight properties). For example:",
+    "syntax": "var intElemScrollHeight = element.scrollHeight;element.scrollHeight - element.scrollTop === element.clientHeight\nwindow.getComputedStyle(element).overflowY === 'visible'\nwindow.getComputedStyle(element).overflowY !== 'hidden'\n",
+    "url": "__nothing"
 }, {
     "name": "Element.scrollLeft",
-    "description": "The Element.scrollLeft property gets or sets the number of pixels that an element's content is scrolled from its left edge.",
-    "syntax": "// Get the number of pixels scrolled\nvar sLeft = element.scrollLeft;\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollLeft"
+    "description": "The Element.scrollLeft property gets or sets the number of pixels that an element's content is scrolled from its left edge.If the element's direction is rtl (right-to-left), then scrollLeft is 0 when the scrollbar is at its rightmost position (at the start of the scrolled content), and then increasingly negative as you scroll towards the end of the content.sLeft is an integer representing the number of pixels that element has been scrolled from the left edge.scrollLeft can be specified as any integer value. However:",
+    "syntax": "// Get the number of pixels scrolled\nvar sLeft = element.scrollLeft;\n// Set the number of pixels scrolled\nelement.scrollLeft = 10;\n",
+    "url": "__nothing"
 }, {
     "name": "Element.scrollLeftMax",
-    "description": "The Element.scrollLeftMax read-only property returns a Number representing the maximum left scroll offset possible for the element.",
+    "description": "The Element.scrollLeftMax read-only property returns a Number representing the maximum left scroll offset possible for the element.This property is not part of any specification.",
     "syntax": "var pxl = element.scrollLeftMax;",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollLeftMax"
+    "url": "__nothing"
 }, {
     "name": "element.scrollTop",
-    "description": "",
-    "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollTop"
+    "description": "scrollTopは要素のスクロールされるピクセル数を取得または設定します。intElemScrollTopは要素のスクロールされたピクセル数に対応する整数です。scrollTopは任意の整数に設定することができます。scrollTopの値は、要素の上端であるtopからその要素で見えている部分の一番上までの距離を意味します。要素が縦のスクロールバーを表示しない時には、scrollTopの値は初期値の0となります。scrollTop is part of the MSIE's DHTML object model and is implemented in the Mozilla Gecko engine powering Firefox.scrollTop is also part of a draft specification from the W3C's CSS working group.scrollTop is a property of the DHTML object model which was first introduced by MSIE. It is referred as the distance to the top of an element physical scrolling view.",
+    "syntax": "__nothing",
+    "url": "__nothing"
 }, {
     "name": "Element.scrollTopMax",
-    "description": "The Element.scrollTopMax read-only property returns a Number representing the maximum top scroll offset possible for the element.",
+    "description": "The Element.scrollTopMax read-only property returns a Number representing the maximum top scroll offset possible for the element.This property is not part of any specification.",
     "syntax": "var pxl = elt.scrollTopMax;",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollTopMax"
+    "url": "__nothing"
 }, {
     "name": "Element.scrollWidth",
-    "description": "Element.scrollWidth は読み取り専用のプロパティで、あふれたために画面に表示されない部分を含めた、要素の中身の幅の寸法です。",
+    "description": "Element.scrollWidth は読み取り専用のプロパティで、あふれたために画面に表示されない部分を含めた、要素の中身の幅の寸法です。scrollWidth の値は、水平スクロールバーを使用せずにすべてのコンテンツをビューポート内に合わせるために要素が必要とする最小幅に等しくなります。幅は clientWidth と同じ方法で定めます。要素のパディングは含みますが、境界線、マージン、 (もしあれば) 垂直スクロールバーは含みません。これには ::before または ::after のような疑似要素の幅を含むことがあります。要素の内容が水平スクロールバーが必要なく合うのであれば、 scrollWidth は clientWidth と等しくなります。xScrollWidth はピクセル単位の element のコンテンツの幅です。",
     "syntax": "var xScrollWidth = element.scrollWidth;",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollWidth"
+    "url": "__nothing"
 }, {
     "name": "Element.shadowRoot",
-    "description": "読み取り専用のプロパティであるElement.shadowRootは、そのエレメントによってホストされたshadow rootへの読み取りアクセスを提供します。既に存在している要素にshadow rootを追加する場合は Element.attachShadow を使用してください。",
+    "description": "読み取り専用のプロパティであるElement.shadowRootは、そのエレメントによってホストされたshadow rootへの読み取りアクセスを提供します。既に存在している要素にshadow rootを追加する場合は Element.attachShadow を使用してください。ShadowRoot オブジェクトです。 アタッチされた時のmode に closed が指定された場合には  null となります。 The following snippets are taken from our life-cycle-callbacks example (see it live also), which creates an element that displays a square of a size and color specified in the element's attributes.Inside the <custom-square> element's class definition we include some life cycle callbacks that make a call to an external function, updateStyle(), which actually applies the size and color to the element. You'll see that we are passing it this (the custom element itself) as a parameter.In the updateStyle() function itself, we get a reference to the shadow DOM using Element.shadowRoot. From here we use standard DOM traversal techniques to find the <style> element inside the shadow DOM and then update the CSS found inside it: ",
     "syntax": "var shadowroot = element.shadowRoot; \n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/shadowRoot"
+    "url": "__nothing"
 }, {
     "name": "Element.openOrClosedShadowRoot",
-    "description": "The Element.openOrCloseShadowRoot read-only property represents the shadow root hosted by the element, regardless if its mode is open or closed. Use Element.attachShadow() to add a shadow root to an existing element.",
+    "description": "The Element.openOrCloseShadowRoot read-only property represents the shadow root hosted by the element, regardless if its mode is open or closed. Use Element.attachShadow() to add a shadow root to an existing element.A ShadowRoot object instance, regardless if its mode is set to open or closed, or null if no shadow root is present. (See Element.attachShadow() for further details).This property is not part of any specification.",
     "syntax": "var shadowroot = element.shadowRoot; \n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/openOrClosedShadowRoot"
+    "url": "__nothing"
 }, {
     "name": "Element.slot",
-    "description": "Element インターフェースの slot プロパティは shadow DOM slot の名前を返します。",
+    "description": "Element インターフェースの slot プロパティは shadow DOM slot の名前を返します。slot は、web コンポーネント の中にユーザーが任意のマークアップを代入できる要素を提供します (template と slot の使い方 により詳しい説明があります)。DOMStringtemplateのサンプル (実行例)では、<my-paragraph> と名付けた簡単なカスタム要素を作っています。このカスタム要素には、shadow root が付いており、my-text と名付けられた slot 要素が含まれています。<my-paragraph> がドキュメントの中で利用された時、その内部で slot 属性を my-text に設定した要素を作ることで、slot の内容を変更することができます。 JavaScript ファイルで <span> への参照を取得すると、対応する <slot> の名前を取得できます。 ",
     "syntax": "var aString = element.slot\nelement.slot = aString\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/slot"
+    "url": "__nothing"
 }, {
     "name": "Element.tabStop",
-    "description": "The tabStop property of the Element interface returns a Boolean indicating if the element can receive input focus via the tab key. If the specified element is a shadow host tab navigation is delegated to its children.",
-    "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/tabStop"
+    "description": "The tabStop property of the Element interface returns a Boolean indicating if the element can receive input focus via the tab key. If the specified element is a shadow host tab navigation is delegated to its children.This property was proposed to add tab functionality for Custom Elements. While with the existing tabIndex property, it is required to specify an order for the element to become tabbable. The tabStop property would decouple the tabbable property from the tab index. After feedback, this property was removed from the design doc and replaced by ShadowRoot.delegatesFocus.",
+    "syntax": "__nothing",
+    "url": "__nothing"
 }, {
     "name": "element.tagName",
-    "description": "要素の名前を返します。",
+    "description": "要素の名前を返します。XML (および XHTML など XML ベースの言語) では、tagName は大文字・小文字が保たれます。HTML では、tagName は標準的な大文字で要素名を返します。 tagName の値は nodeName の値と同じになります。以下のようなマークアップを想定します。上記 HTML に対し以下のスクリプトを実行した場合...XHTML (および他の XML 形式) では、「span」という警告ダイアログが表示されます。HTML では、その代わりに「SPAN」と表示されます。",
     "syntax": "elementName = element.tagName\n",
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/tagName"
+    "url": "__nothing"
 }, {
-    "name": "ページが見つかりません",
+    "name": null,
     "description": null,
     "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/undoManager"
+    "url": null
 }, {
-    "name": "ページが見つかりません",
+    "name": null,
     "description": null,
     "syntax": null,
-    "url": "https://developer.mozilla.org/ja/docs/Web/API/Element/undoScope"
+    "url": null
 }]
