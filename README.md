@@ -257,7 +257,7 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 |[crowler.makePageBasic](#makePageBasic)| |Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する、Basic認証機能付き|
 |[crowler.pageClick](#pageClick)| |puppeteerのpageオブジェクトでclickする|
 |[crowler.browserClose](#browserClose)| |puppeteerのbrowserを閉じる|
-|[crowler.renderingGetHref](#renderingGetHref)| |pageオブジェクト内のhrefを収集する|
+|[crowler.renderingGetHref](#renderingGetHref)|`headless`|pageオブジェクト内のhrefを収集する|
 |[crowler.getHref](#getHref)| |指定された画面のhrefを収集する(非推奨)|
 |[crowler.getHrefFromUrl](#getHrefFromUrl)| |urlで指定された画面のhrefを収集する|
 |[crowler.getHrefFromDom](#getHrefFromDom)| |domでわたされた画面のhrefを収集する|
