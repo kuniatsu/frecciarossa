@@ -153,67 +153,96 @@ CMD ["echo","now runing..."]  ・・・CMDはrun時に実行
 
 # **scrapingサンプル**
 
-puppeteer使用
+ヘッドレスブラウザを使用しScraping
 ```Javascript
 "use strict";
 /*crowler.js内の関数を使用するのに必要*/
 const crowler = require('./crowler'); 
 /*Tagを指定するためのセレクタ*/ 
-const shopSelector = 'div.item > div.title > p.name >a';    
+const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 
 (async() => {
     /*短縮して動かす際に使用、繰り返す回数を制限*/
-    // crowler.setTestCount(5);//test                        
+    // crowler.setTestCount(0);//test                        
     
     /*puppeteerのブラウザとpageを作成、pageはブラウザのタブのイメージ*/
-    let page = await crowler.makePage();
+    let page = await crowler.makePage(false);
     
     /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
-    let shopUrl = await crowler.renderingGetHref(page,'https://www.nta.co.jp/shop/shoplist/shp/',shopSelector);
+    let urlArray = await crowler.renderingGetHref(page,'https://developer.mozilla.org/ja/docs/Web/API/Element',hrefSelector);
 
     /*指定のurlを開きセレクターで指定されている要素のinnerTextを取得する*/
-    let ntaData = await crowler.renderingScraping(
-      page, shopUrl, crowler.renderingGetInnerText,{
-        name :'div.base_dlist > dl:nth-of-type(1) > dd',
-        address :'div.base_dlist > dl:nth-of-type(2) > dd',
-        tel :'div.base_dlist > dl:nth-of-type(3) > dd', 
-        shopHours:'div.base_dlist > dl:nth-of-type(5) > dd',
-        holiday :'div.base_dlist > dl:nth-of-type(6) > dd'
+    let MDN_info = await crowler.renderingScraping(
+      page, urlArray, crowler.renderingGetValue,{
+        name :{attribute:'innerText',selector:'h1'},
+        description :{attribute:'innerText',selector:'#wikiArticle > p'},
+        syntax :{attribute:'innerText',selector:'#wikiArticle > pre.syntaxbox'},
+        url:{attribute:'baseURI',selector:'html'}
     });
 
     /*puppeteerのブラウザを終了する*/
     crowler.browserClose();
     /*取得したデータをdata.jsonというファイルで保存*/
-    crowler.writeFile('data.json', ntaData);
+    crowler.writeFile('sampleData.json', MDN_info);
 })();
 ```
 
-cheerio-httpcli使用
+同期通信でScraping
 ```Javascript
 "use strict";
 /*crowler.js内の関数を使用するのに必要*/
 const crowler = require('./crowler'); 
 /*Tagを指定するためのセレクタ*/ 
-const shopSelector = 'div.item > div.title > p.name >a';   
+const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 
-(async()=>{  
-    //短縮して動かす際に使用、繰り返す回数を制限
-    // crowler.setTestCount(5);
-
+(async() => {
+    /*短縮して動かす際に使用、繰り返す回数を制限*/
+    // crowler.setTestCount(0);//test                        
+        
     /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
-    let shopUrl = await crowler.getHref("https://www.nta.co.jp/shop/shoplist/shp/",shopSelector);
+    let urlArray = await crowler.getHref('https://developer.mozilla.org/ja/docs/Web/API/Element',hrefSelector);
 
     /*指定のurlを開きセレクターで指定されている要素のinnerTextを取得する*/
-    let ntaData = await crowler.syncScraping(shopUrl,crowler.getInnerText,{
-        name:'div.base_dlist > dl:nth-of-type(1) > dd',
-        address :'div.base_dlist > dl:nth-of-type(2) > dd',
-        tel :'div.base_dlist > dl:nth-of-type(3) > dd', 
-        shopHours:'div.base_dlist > dl:nth-of-type(5) > dd',
-        holiday :'div.base_dlist > dl:nth-of-type(6) > dd'
+    let MDN_info = await crowler.syncScraping(
+      urlArray, crowler.getValue,{
+        name :{attribute:'innerText',selector:'h1'},
+        description :{attribute:'innerText',selector:'#wikiArticle > p'},
+        syntax :{attribute:'innerText',selector:'#wikiArticle > pre.syntaxbox'},
+        url:{attribute:'baseURI',selector:'html'}
     });
 
     /*取得したデータをdata.jsonというファイルで保存*/
-    crowler.writeFile('data.json',ntaData);
+    crowler.writeFile('sampleData.json', MDN_info);
+})();
+```
+
+
+非同期通信でScraping
+```Javascript
+"use strict";
+/*crowler.js内の関数を使用するのに必要*/
+const crowler = require('./crowler'); 
+/*Tagを指定するためのセレクタ*/ 
+const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
+
+(async() => {
+    /*短縮して動かす際に使用、繰り返す回数を制限*/
+    // crowler.setTestCount(0);//test                        
+        
+    /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
+    let urlArray = await crowler.getHref('https://developer.mozilla.org/ja/docs/Web/API/Element',hrefSelector);
+
+    /*指定のurlを開きセレクターで指定されている要素のinnerTextを取得する*/
+    let MDN_info = await crowler.asyncScraping(
+      urlArray, crowler.getValue,{
+        name :{attribute:'innerText',selector:'h1'},
+        description :{attribute:'innerText',selector:'#wikiArticle > p'},
+        syntax :{attribute:'innerText',selector:'#wikiArticle > pre.syntaxbox'},
+        url:{attribute:'baseURI',selector:'html'}
+    });
+
+    /*取得したデータをdata.jsonというファイルで保存*/
+    crowler.writeFile('sampleData.json', MDN_info);
 })();
 ```
 
