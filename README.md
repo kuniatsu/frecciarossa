@@ -252,35 +252,33 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 |[crowler.setTestCount](#setTestCount)| |renderingScraping・syncScraping・asyncScrapingの実行回数を設定する。|  
 |[crowler.getTestCount](#getTestCount)| |renderingScraping・syncScraping・asyncScrapingの実行回数を取得する。|  
 |[crowler.chackTestCount](#chackTestCount)| |テスト動作時にループ回数を判定する|  
-|[crowler.getClient](#getClient)| |cheerio-httpcliのオブジェクトを取得するgetter|
-|[crowler.makePage](#makePage)| |Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する|
-|[crowler.makePageBasic](#makePageBasic)| |Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する、Basic認証機能付き|
-|[crowler.pageClick](#pageClick)| |puppeteerのpageオブジェクトでclickする|
-|[crowler.browserClose](#browserClose)| |puppeteerのbrowserを閉じる|
-|[crowler.renderingGetHref](#renderingGetHref)|`headless`|pageオブジェクト内のhrefを収集する|
+|[crowler.getClient](#getClient)|`cheerio`|cheerio-httpcliのオブジェクトを取得するgetter|
+|[crowler.makePage](#makePage)|`Puppeteer`|Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する|
+|[crowler.makePageBasic](#makePageBasic)|`Puppeteer`|Puppeteerのbrowserを立ち上げる、pageオブジェクトを作成する、Basic認証機能付き|
+|[crowler.pageClick](#pageClick)|`Puppeteer`|puppeteerのpageオブジェクトでclickする|
+|[crowler.browserClose](#browserClose)|`Puppeteer`|puppeteerのbrowserを閉じる|
+|[crowler.renderingGetHref](#renderingGetHref)|`Puppeteer`|pageオブジェクト内のhrefを収集する|
 |[crowler.getHref](#getHref)| |指定された画面のhrefを収集する(非推奨)|
 |[crowler.getHrefFromUrl](#getHrefFromUrl)| |urlで指定された画面のhrefを収集する|
 |[crowler.getHrefFromDom](#getHrefFromDom)| |domでわたされた画面のhrefを収集する|
 |[crowler.getHrefs](#getHrefs)| |urlで指定された画面のhrefを複数のselectorで探し取得する|
-|[crowler.renderingGetValue](#renderingGetValue)| |urlで指定された画面の値を収集する|
-|[crowler.getValue](#getValue)| |urlで指定された画面の値を収集する|
-|[crowler.renderingGetInnerText](#renderingGetInnerText)| |pageオブジェクトの値を収集する|v
-|[crowler.getInnerText](#getInnerText)| |指定された画面の値を収集する|
-|[crowler.renderingScraping](#renderingScraping)| |レンダリングされたページに対して繰り返しscraping関数を呼び出す|
+|[crowler.renderingGetValue](#renderingGetValue)|`Puppeteer`|urlで指定された画面の値を収集する|
+|[crowler.getValue](#getValue)|`cheerio`|urlで指定された画面の値を収集する|
+|[crowler.renderingGetInnerText](#renderingGetInnerText)|`Puppeteer`|pageオブジェクトの値を収集する|v
+|[crowler.getInnerText](#getInnerText)|`cheerio`|指定された画面の値を収集する|
+|[crowler.renderingScraping](#renderingScraping)|`Puppeteer`|レンダリングされたページに対して繰り返しscraping関数を呼び出す|
 |[crowler.syncScraping](#syncScraping)| |URLに対して繰り返しscraping関数を呼び出す|
 |[crowler.asyncScraping](#asyncScraping)| |URLに対して非同期で繰り返しscraping関数を呼び出す|
 |[crowler.writeFile](#writeFile)| |データをファイルを書き出す|
 |[crowler.getEncodeURI](#getEncodeURI)| |日本語URLをUTF-8URLに変換する|
-|[crowler.analysisDom](#analysisDom)| |htmlを文字列で受け取りselectorで指定した情報を返す|
-|[crowler.screenShot](#screenShot)|`headless`|配列でURLを渡したサイトのスクリーンショットを作成する|
-
-
-|[page.goto](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagegotourl-options)  | |pageを指定のURLへ移動  |
-|[page.click](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageclickselector-options){:target="_blank"}  | |selectorでpageの指定した要素をclick  |
-|[page.waitFor](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagewaitforselectororfunctionortimeout-options-args){:target="_blank"}  | |指定した秒数待つ  |
-|[page.$eval](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageevalselector-pagefunction-args-1){:target="_blank"}  | |selectorでpage内の指定した要素を取得  |
-|[page.$$eval](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageevalselector-pagefunction-args){:target="_blank"}  | |selectorでpage内の指定した要素を全て取得  |
-|[page.screenshot](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagescreenshotoptions){:target="_blank"}| |pageのスクリーンショットを作成  |
+|[crowler.analysisDom](#analysisDom)|`cheerio`|htmlを文字列で受け取りselectorで指定した情報を返す|
+|[crowler.screenShot](#screenShot)|`Puppeteer`|配列でURLを渡したサイトのスクリーンショットを作成する|
+|[page.goto](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagegotourl-options)  |`Puppeteer`|pageを指定のURLへ移動  |
+|[page.click](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageclickselector-options){:target="_blank"}  |`Puppeteer`|selectorでpageの指定した要素をclick  |
+|[page.waitFor](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagewaitforselectororfunctionortimeout-options-args){:target="_blank"}  |`Puppeteer`|指定した秒数待つ  |
+|[page.$eval](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageevalselector-pagefunction-args-1){:target="_blank"}  |`Puppeteer`|selectorでpage内の指定した要素を取得  |
+|[page.$$eval](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageevalselector-pagefunction-args){:target="_blank"}  |`Puppeteer`|selectorでpage内の指定した要素を全て取得  |
+|[page.screenshot](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagescreenshotoptions){:target="_blank"}|`Puppeteer`|pageのスクリーンショットを作成  |
 
 
 
