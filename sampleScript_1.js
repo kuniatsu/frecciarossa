@@ -9,7 +9,7 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
     // crowler.setTestCount(0);//test                        
     
     /*puppeteerのブラウザとpageを作成、pageはブラウザのタブのイメージ*/
-    let page = await crowler.makePage(false);
+    let page = await crowler.makePage();
     
     /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
     let urlArray = await crowler.renderingGetHref(page,'https://developer.mozilla.org/ja/docs/Web/API/Element',hrefSelector);

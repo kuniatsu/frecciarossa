@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 const URL = require('url');
 const fs = require("fs");
 const puppeteer = require('puppeteer');
+const devices = require('puppeteer/DeviceDescriptors');
 
 var testnum = Number.MAX_SAFE_INTEGER;
 var browser = null;
@@ -273,6 +274,51 @@ exports.getEncodeURI = (url)=>{
 exports.analysisDom = (text,selector)=>{
     var cheerioDom = cheerio.load(text);
     return cheerioDom(selector).text;
+}
+
+
+
+exports.screenShot = async (page,urlArray,nameArg="screenShot",dir="",emulateDevices="",fullsize=true,quality=80)=>{
+
+    //そのほか
+    var path = dir?"./"+dir+"/":"./";
+    var name = [];
+    //名前の決定
+    if(Array.isArray(nameArg)){
+        if(nameArg.length == urlArray.length){
+            name = nameArg;
+        }else{
+            urlArray.forEach((e,i)=>{
+                name[i] = (i+1) +"_"+nameArg[i % nameArg.length];
+            })
+        }
+    }else　if(typeof nameArg=="string"){
+        urlArray.forEach((e,i)=>{
+            name[i] = (i+1)+nameArg;
+        })
+    }
+
+    //端末の指定
+    var i = 0;
+    if(emulateDevices !== ""){
+        await page.emulate(devices[emulateDevices]);
+    }
+
+    for(var url of urlArray){
+        if(url!=null){
+            console.log("goto:"+url);
+            console.log(name[i]);
+            await page.goto(url, {waitUntil: "networkidle2"});
+            await page.screenshot( {
+                path: path+name[i]+".jpg",
+                fullPage: fullsize,
+                quality: quality,
+            }).catch((e)=>{
+              console.dir(e);
+            });;
+        }
+        i++;
+    }
 }
 
 
