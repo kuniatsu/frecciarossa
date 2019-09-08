@@ -264,7 +264,7 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 |[crowler.getHrefs](#getHrefs)| |urlで指定された画面のhrefを複数のselectorで探し取得する|
 |[crowler.renderingGetValue](#renderingGetValue)| |urlで指定された画面の値を収集する|
 |[crowler.getValue](#getValue)| |urlで指定された画面の値を収集する|
-|[crowler.renderingGetInnerText](#renderingGetInnerText)| |pageオブジェクトの値を収集する|
+|[crowler.renderingGetInnerText](#renderingGetInnerText)| |pageオブジェクトの値を収集する|v
 |[crowler.getInnerText](#getInnerText)| |指定された画面の値を収集する|
 |[crowler.renderingScraping](#renderingScraping)| |レンダリングされたページに対して繰り返しscraping関数を呼び出す|
 |[crowler.syncScraping](#syncScraping)| |URLに対して繰り返しscraping関数を呼び出す|
@@ -272,6 +272,9 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 |[crowler.writeFile](#writeFile)| |データをファイルを書き出す|
 |[crowler.getEncodeURI](#getEncodeURI)| |日本語URLをUTF-8URLに変換する|
 |[crowler.analysisDom](#analysisDom)| |htmlを文字列で受け取りselectorで指定した情報を返す|
+|[crowler.screenShot](#screenShot)|`headless`|配列でURLを渡したサイトのスクリーンショットを作成する|
+
+
 |[page.goto](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagegotourl-options)  | |pageを指定のURLへ移動  |
 |[page.click](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pageclickselector-options){:target="_blank"}  | |selectorでpageの指定した要素をclick  |
 |[page.waitFor](https://pptr.dev/#?product=Puppeteer&version=v1.11.0&show=api-pagewaitforselectororfunctionortimeout-options-args){:target="_blank"}  | |指定した秒数待つ  |
