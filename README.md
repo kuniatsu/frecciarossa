@@ -290,6 +290,35 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 
 テストとして動作させる際に使用する。
 
+# <a name="getTestCount">crowler.getTestCount</a>  
+> getTestCount()     
+
+-戻り値:setTestCountで設定した値  
+
+setTestCountで設定した値を返却する。  
+
+# <a name="chackTestCount">crowler.chackTestCount</a>  
+> getTestCount(num)     
+
+-引数:num・・・testCountと比較する数値を渡す    
+-戻り値:引数よりtestCountが低い数値ならtrueを返す   
+
+指定した数値よりしたらなtrueループなどに使う     
+
+
+# <a name="getClient">crowler.getClient</a>  
+> getClient()     
+
+-戻り値:cheerio-httpcliのオブジェクト    
+
+cheerio-httpcliのオブジェクトを取得     
+
+
+
+
+
+
+
 # <a name="makePage">crowler.makePage</a>
 > makePage(url=null) 
 
