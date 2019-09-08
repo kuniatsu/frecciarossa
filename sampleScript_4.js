@@ -1,8 +1,6 @@
 "use strict";
 /*crowler.js内の関数を使用するのに必要*/
-
 const crowler = require('./crowler'); 
-// const devices = require('puppeteer/DeviceDescriptors');
 
 (async() => {    
     /*puppeteerのブラウザとpageを作成、pageはブラウザのタブのイメージ*/
@@ -13,17 +11,13 @@ const crowler = require('./crowler');
         "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollLeft",
         "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollTop"
     ];
-
-
-//////////////ここから
-
-    //引数
-    var dir = "ss";
-    var nameArg = "masao";//文字列か配列
-    var quality = 80;
-    var fullsize = true;
-    var emulateDevices = "iPhone X";
-
+    
+    //引数用の値
+    var dir = "ss";//screenShotが保存される場所
+    var nameArg = "masao";//screeShotファイルのファイル名
+    var quality = 80;//画質、80がデフォルト
+    var fullsize = true;//trueでページ全体をscreenShot
+    var emulateDevices = "iPhone X";//エミュレータ端末
     await crowler.screenShot(page,urlArray,nameArg,dir,emulateDevices,fullsize,quality);
 
     /*puppeteerのブラウザを終了する*/
