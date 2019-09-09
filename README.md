@@ -246,7 +246,7 @@ const hrefSelector = '#wikiArticle > dl:nth-child(8) > dt > a';
 ```
 
 指定したURLのページをスクリーンショットで撮る
-```
+```Javascript
 "use strict";
 /*crowler.js内の関数を使用するのに必要*/
 const crowler = require('./crowler'); 
@@ -255,7 +255,7 @@ const crowler = require('./crowler');
     /*puppeteerのブラウザとpageを作成、pageはブラウザのタブのイメージ*/
     let page = await crowler.makePage();
     
-    /*指定したurlを開きセレクターの条件に合うhrefを全て取得*/
+    /*screenShotを撮りたいURLを配列に追加*/
     let urlArray = [
         "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollLeft",
         "https://developer.mozilla.org/ja/docs/Web/API/Element/scrollTop"
