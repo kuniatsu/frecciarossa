@@ -4,6 +4,7 @@ const URL = require('url');
 const fs = require("fs");
 const puppeteer = require('puppeteer');
 const devices = require('puppeteer/DeviceDescriptors');
+const resemble = require('resemblejs');
 
 var testnum = Number.MAX_SAFE_INTEGER;
 var browser = null;
@@ -269,7 +270,6 @@ exports.getEncodeURI = (url)=>{
     return encodeUrl;
 }
 
-/* 新規追加 */
 //htmlを文字列で受け取りselectorで指定した情報を返す
 exports.analysisDom = (text,selector)=>{
     var cheerioDom = cheerio.load(text);
@@ -322,3 +322,14 @@ exports.screenShot = async (page,urlArray,nameArg="screenShot",dir="",emulateDev
 }
 
 
+//画像の比較を行う
+exports.diffImage = (name,image1,image2)=>{
+    resemble(image1).compareTo(image2).onComplete(data => {
+        if (data.misMatchPercentage >= 0.01) {
+          console.log('差分を検知しました。');
+          fs.writeFileSync("./diff_"+ name + ".jpg", data.getBuffer());
+        }else{
+          console.log("差分なし");
+        }
+    });
+}
