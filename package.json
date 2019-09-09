@@ -7,8 +7,10 @@
         "cheerio-httpcli": "latest",
         "csv": "^5.1.1",
         "csv-parse": "^4.4.3",
+        "fs": "0.0.1-security",
         "puppeteer": "^1.17.0",
-        "readline-sync": "^1.4.9"
+        "readline-sync": "^1.4.9",
+        "resemblejs": "^3.2.2"
     },
     "scripts": {
         "echo": "echo npm_end"
